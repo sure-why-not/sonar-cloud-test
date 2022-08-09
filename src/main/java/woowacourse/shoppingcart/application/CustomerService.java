@@ -75,4 +75,12 @@ public class CustomerService {
         final Customer updatedCustomer = customer.updatePassword(Password.fromRawValue(newPassword));
         customerDao.updateById(updatedCustomer);
     }
+
+    public void updatePasswor1d(final CustomerPasswordUpdateServiceRequest request) {
+        final Customer customer = findCustomerById(request.getId());
+        validatePassword(customer, request.getOldPassword());
+        final String newPassword = request.getNewPassword();
+        final Customer updatedCustomer = customer.updatePassword(Password.fromRawValue(newPassword));
+        customerDao.updateById(updatedCustomer);
+    }
 }
