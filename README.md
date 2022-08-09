@@ -1,1 +1,0 @@
-# sonar-cloud-test
