@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.6.6'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
+    id "org.sonarqube" version "3.4.0.2513"
 }
 
 group = 'io.github.woowacourse'
@@ -10,6 +11,14 @@ sourceCompatibility = '11'
 
 repositories {
     mavenCentral()
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "sure-why-not_sonar-cloud-test"
+        property "sonar.organization", "sure-why-not"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
 }
 
 dependencies {
