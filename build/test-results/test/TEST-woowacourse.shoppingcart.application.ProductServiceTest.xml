@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="woowacourse.shoppingcart.application.ProductServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2022-08-09T07:06:06" hostname="bagseeun-ui-MacBookPro.local" time="0.115">
+  <properties/>
+  <testcase name="id 에 해당하는 상품을 삭제한다." classname="woowacourse.shoppingcart.application.ProductServiceTest" time="0.087"/>
+  <testcase name="limit 개수만큼 page 에 해당하는 상품을 조회한다." classname="woowacourse.shoppingcart.application.ProductServiceTest" time="0.003"/>
+  <testcase name="limit * (page-1) 부터 limit 개수만큼 상품을 조회한다." classname="woowacourse.shoppingcart.application.ProductServiceTest" time="0.008"/>
+  <testcase name="id 에 해당하는 상품을 조회한다." classname="woowacourse.shoppingcart.application.ProductServiceTest" time="0.003"/>
+  <testcase name="상품을 추가한다." classname="woowacourse.shoppingcart.application.ProductServiceTest" time="0.0"/>
+  <testcase name="상품 삭제시 id 에 해당하는 상품이 없을 경우 예외를 던진다." classname="woowacourse.shoppingcart.application.ProductServiceTest" time="0.002"/>
+  <testcase name="상품 조회시 id 에 해당하는 상품이 없을 경우 예외를 던진다." classname="woowacourse.shoppingcart.application.ProductServiceTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

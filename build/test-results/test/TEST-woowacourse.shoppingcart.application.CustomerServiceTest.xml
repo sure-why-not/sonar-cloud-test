@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="woowacourse.shoppingcart.application.CustomerServiceTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-08-09T07:06:06" hostname="bagseeun-ui-MacBookPro.local" time="1.212">
+  <properties/>
+  <testcase name="회원을 삭제한다." classname="woowacourse.shoppingcart.application.CustomerServiceTest" time="0.172"/>
+  <testcase name="id로 회원 정보를 조회한다." classname="woowacourse.shoppingcart.application.CustomerServiceTest" time="0.087"/>
+  <testcase name="회원의 이름을 수정한다." classname="woowacourse.shoppingcart.application.CustomerServiceTest" time="0.088"/>
+  <testcase name="회원을 등록한다." classname="woowacourse.shoppingcart.application.CustomerServiceTest" time="0.174"/>
+  <testcase name="회원 삭제시 비밀번호가 일치하지 않을 경우 예외가 발생한다." classname="woowacourse.shoppingcart.application.CustomerServiceTest" time="0.171"/>
+  <testcase name="중복된 이메일로 회원 등록 시 예외가 발생한다." classname="woowacourse.shoppingcart.application.CustomerServiceTest" time="0.085"/>
+  <testcase name="회원 비밀번호 수정시 기존 비밀번호와 다를 경우 예외가 발생한다." classname="woowacourse.shoppingcart.application.CustomerServiceTest" time="0.173"/>
+  <testcase name="회원의 비밀번호를 수정한다." classname="woowacourse.shoppingcart.application.CustomerServiceTest" time="0.253"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

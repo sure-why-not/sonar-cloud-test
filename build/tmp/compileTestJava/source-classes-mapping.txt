@@ -1,0 +1,50 @@
+woowacourse/shoppingcart/dao/CustomerDaoTest.java
+ woowacourse.shoppingcart.dao.CustomerDaoTest
+woowacourse/auth/ui/AuthControllerTest.java
+ woowacourse.auth.ui.AuthControllerTest
+woowacourse/shoppingcart/dao/OrderDaoTest.java
+ woowacourse.shoppingcart.dao.OrderDaoTest
+woowacourse/shoppingcart/acceptance/CustomerAcceptanceTest.java
+ woowacourse.shoppingcart.acceptance.CustomerAcceptanceTest
+woowacourse/shoppingcart/domain/EmailTest.java
+ woowacourse.shoppingcart.domain.EmailTest
+woowacourse/shoppingcart/application/OrderServiceTest.java
+ woowacourse.shoppingcart.application.OrderServiceTest
+woowacourse/shoppingcart/domain/CustomerTest.java
+ woowacourse.shoppingcart.domain.CustomerTest
+woowacourse/shoppingcart/acceptance/AcceptanceTest.java
+ woowacourse.shoppingcart.acceptance.AcceptanceTest
+woowacourse/shoppingcart/ui/OrderControllerTest.java
+ woowacourse.shoppingcart.ui.OrderControllerTest
+woowacourse/shoppingcart/dao/CartItemDaoTest.java
+ woowacourse.shoppingcart.dao.CartItemDaoTest
+woowacourse/shoppingcart/ui/CustomerControllerTest.java
+ woowacourse.shoppingcart.ui.CustomerControllerTest
+woowacourse/shoppingcart/domain/PasswordTest.java
+ woowacourse.shoppingcart.domain.PasswordTest
+woowacourse/auth/acceptance/AuthAcceptanceTest.java
+ woowacourse.auth.acceptance.AuthAcceptanceTest
+woowacourse/shoppingcart/dao/OrdersDetailDaoTest.java
+ woowacourse.shoppingcart.dao.OrdersDetailDaoTest
+woowacourse/shoppingcart/acceptance/OrderAcceptanceTest.java
+ woowacourse.shoppingcart.acceptance.OrderAcceptanceTest
+woowacourse/shoppingcart/acceptance/ProductAcceptanceTest.java
+ woowacourse.shoppingcart.acceptance.ProductAcceptanceTest
+woowacourse/shoppingcart/application/ProductServiceTest.java
+ woowacourse.shoppingcart.application.ProductServiceTest
+woowacourse/shoppingcart/application/CartServiceTest.java
+ woowacourse.shoppingcart.application.CartServiceTest
+woowacourse/shoppingcart/config/WebConfigTest.java
+ woowacourse.shoppingcart.config.WebConfigTest
+woowacourse/shoppingcart/acceptance/CartAcceptanceTest.java
+ woowacourse.shoppingcart.acceptance.CartAcceptanceTest
+woowacourse/auth/support/JwtTokenProviderTest.java
+ woowacourse.auth.support.JwtTokenProviderTest
+woowacourse/shoppingcart/application/CustomerServiceTest.java
+ woowacourse.shoppingcart.application.CustomerServiceTest
+woowacourse/auth/application/AuthServiceTest.java
+ woowacourse.auth.application.AuthServiceTest
+woowacourse/shoppingcart/dao/ProductDaoTest.java
+ woowacourse.shoppingcart.dao.ProductDaoTest
+woowacourse/shoppingcart/ui/ProductControllerTest.java
+ woowacourse.shoppingcart.ui.ProductControllerTest

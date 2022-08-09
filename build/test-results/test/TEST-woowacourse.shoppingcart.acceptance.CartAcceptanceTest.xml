@@ -1,0 +1,1095 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="장바구니 관련 기능" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-08-09T07:05:49" hostname="bagseeun-ui-MacBookPro.local" time="6.315">
+  <properties/>
+  <testcase name="회원의 장바구니에서 상품을 삭제한다." classname="woowacourse.shoppingcart.acceptance.CartAcceptanceTest" time="1.136"/>
+  <testcase name="장바구니에 상품을 추가한다." classname="woowacourse.shoppingcart.acceptance.CartAcceptanceTest" time="1.11"/>
+  <testcase name="존재하지 않는 장바구니 상품을 삭제할 경우 404 NOT_FOUND 를 응답한다.." classname="woowacourse.shoppingcart.acceptance.CartAcceptanceTest" time="0.985"/>
+  <testcase name="장바구니 상품의 수량을 변경한다." classname="woowacourse.shoppingcart.acceptance.CartAcceptanceTest" time="0.989"/>
+  <testcase name="장바구니 상품 추가시 존재하지 않는 상품일 경우 404 응답을 반환한다." classname="woowacourse.shoppingcart.acceptance.CartAcceptanceTest" time="1.084"/>
+  <testcase name="회원의 장바구니에 담긴 상품 목록을 조회한다." classname="woowacourse.shoppingcart.acceptance.CartAcceptanceTest" time="0.99"/>
+  <system-out><![CDATA[2022-08-09 16:05:49.916  INFO 72414 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [woowacourse.shoppingcart.acceptance.CartAcceptanceTest], using SpringBootContextLoader
+2022-08-09 16:05:49.918  INFO 72414 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [woowacourse.shoppingcart.acceptance.CartAcceptanceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-08-09 16:05:49.918  INFO 72414 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [woowacourse.shoppingcart.acceptance.CartAcceptanceTest]: CartAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-08-09 16:05:49.921  INFO 72414 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration woowacourse.Application for test class woowacourse.shoppingcart.acceptance.CartAcceptanceTest
+2022-08-09 16:05:49.924  INFO 72414 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-08-09 16:05:49.924  INFO 72414 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@50934235, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3bb381d5, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@700961c3, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6aba5623, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@207223ab, org.springframework.test.context.support.DirtiesContextTestExecutionListener@768a359, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3c54dd0e, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@4679fe9, org.springframework.test.context.event.EventPublishingTestExecutionListener@35398bb5, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@77099420, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6d2f8b62, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@558fd9f9, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2c1284de, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@1781bde8, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@66450e1]
+2022-08-09 16:05:49.947  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Shutdown initiated...
+2022-08-09 16:05:49.950  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.6)
+
+2022-08-09 16:05:49.979  INFO 72414 --- [    Test worker] w.s.acceptance.CartAcceptanceTest        : Starting CartAcceptanceTest using Java 15.0.7 on bagseeun-ui-MacBookPro.local with PID 72414 (started by parkseeun in /Users/parkseeun/Develop/woowacourse/level-3/sonar-cloud)
+2022-08-09 16:05:49.979  INFO 72414 --- [    Test worker] w.s.acceptance.CartAcceptanceTest        : The following 1 profile is active: "test"
+2022-08-09 16:05:50.204  INFO 72414 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-08-09 16:05:50.206  INFO 72414 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-09 16:05:50.207  INFO 72414 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-08-09 16:05:50.216  INFO 72414 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-09 16:05:50.216  INFO 72414 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 235 ms
+2022-08-09 16:05:50.260  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-17 - Starting...
+2022-08-09 16:05:50.262  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-17 - Start completed.
+2022-08-09 16:05:50.570  INFO 72414 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 60946 (http) with context path ''
+2022-08-09 16:05:50.573  INFO 72414 --- [    Test worker] w.s.acceptance.CartAcceptanceTest        : Started CartAcceptanceTest in 0.62 seconds (JVM running for 30.929)
+Request method:	POST
+Request URI:	http://localhost:60946/api/products
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "치킨",
+    "price": 10000,
+    "imageUrl": "http://example.com/chicken.jpg"
+}
+2022-08-09 16:05:50.608  INFO 72414 --- [-auto-13-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-09 16:05:50.608  INFO 72414 --- [-auto-13-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-09 16:05:50.609  INFO 72414 --- [-auto-13-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: /api/products/6
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:50 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60946/api/products
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "맥주",
+    "price": 20000,
+    "imageUrl": "http://example.com/beer.jpg"
+}
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: /api/products/7
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:50 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60946/api/customer
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "클레이",
+    "email": "djwhy5510@naver.com",
+    "password": "1234567891"
+}
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:50 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60946/api/login
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "email": "djwhy5510@naver.com",
+    "password": "1234567891"
+}
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Tue, 09 Aug 2022 07:05:50 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "accessToken": "eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjI2IiwiaWF0IjoxNjYwMDI4NzUwLCJleHAiOjE2NjAwMzIzNTB9.pzbkxIbillSBonj4KowIzPfMqGsqbGPveGMOf0jk8pBN6xIFxOOXcGt10SbiK0vCQNLW1DCJ6EpiCsiaqXmyAw"
+}
+Request method:	POST
+Request URI:	http://localhost:60946/api/customer/carts
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "productId": 6
+}
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: http://localhost:60946/api/customer/carts/1
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:50 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60946/api/customer/carts
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "productId": 7
+}
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: http://localhost:60946/api/customer/carts/2
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:50 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	DELETE
+Request URI:	http://localhost:60946/api/customer/carts
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "cartIds": [
+        1,
+        2
+    ]
+}
+HTTP/1.1 204 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Date: Tue, 09 Aug 2022 07:05:50 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+2022-08-09 16:05:51.087  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-17 - Shutdown initiated...
+2022-08-09 16:05:51.090  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-17 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.6)
+
+2022-08-09 16:05:51.122  INFO 72414 --- [    Test worker] w.s.acceptance.CartAcceptanceTest        : Starting CartAcceptanceTest using Java 15.0.7 on bagseeun-ui-MacBookPro.local with PID 72414 (started by parkseeun in /Users/parkseeun/Develop/woowacourse/level-3/sonar-cloud)
+2022-08-09 16:05:51.123  INFO 72414 --- [    Test worker] w.s.acceptance.CartAcceptanceTest        : The following 1 profile is active: "test"
+2022-08-09 16:05:51.324  INFO 72414 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-08-09 16:05:51.325  INFO 72414 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-09 16:05:51.325  INFO 72414 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-08-09 16:05:51.335  INFO 72414 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-09 16:05:51.335  INFO 72414 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 211 ms
+2022-08-09 16:05:51.391  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-18 - Starting...
+2022-08-09 16:05:51.393  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-18 - Start completed.
+2022-08-09 16:05:51.648  INFO 72414 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 60955 (http) with context path ''
+2022-08-09 16:05:51.650  INFO 72414 --- [    Test worker] w.s.acceptance.CartAcceptanceTest        : Started CartAcceptanceTest in 0.559 seconds (JVM running for 32.007)
+Request method:	POST
+Request URI:	http://localhost:60955/api/products
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "치킨",
+    "price": 10000,
+    "imageUrl": "http://example.com/chicken.jpg"
+}
+2022-08-09 16:05:51.677  INFO 72414 --- [-auto-14-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-09 16:05:51.678  INFO 72414 --- [-auto-14-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-09 16:05:51.679  INFO 72414 --- [-auto-14-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: /api/products/6
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:51 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60955/api/products
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "맥주",
+    "price": 20000,
+    "imageUrl": "http://example.com/beer.jpg"
+}
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: /api/products/7
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:51 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60955/api/customer
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "클레이",
+    "email": "djwhy5510@naver.com",
+    "password": "1234567891"
+}
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:51 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60955/api/login
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "email": "djwhy5510@naver.com",
+    "password": "1234567891"
+}
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Tue, 09 Aug 2022 07:05:51 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "accessToken": "eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjI2IiwiaWF0IjoxNjYwMDI4NzUyLCJleHAiOjE2NjAwMzIzNTJ9.w0AiKQPT_0ItKwFrPH25XTgqQo2MsNdLEuwNf8xvJNsTvcTM_B-UBEJUSQ_aK3KAq45C_NYVMK4vvoZn88HNJg"
+}
+Request method:	POST
+Request URI:	http://localhost:60955/api/customer/carts
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "productId": 6
+}
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: http://localhost:60955/api/customer/carts/1
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:51 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+2022-08-09 16:05:52.216  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-18 - Shutdown initiated...
+2022-08-09 16:05:52.221  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-18 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.6)
+
+2022-08-09 16:05:52.280  INFO 72414 --- [    Test worker] w.s.acceptance.CartAcceptanceTest        : Starting CartAcceptanceTest using Java 15.0.7 on bagseeun-ui-MacBookPro.local with PID 72414 (started by parkseeun in /Users/parkseeun/Develop/woowacourse/level-3/sonar-cloud)
+2022-08-09 16:05:52.280  INFO 72414 --- [    Test worker] w.s.acceptance.CartAcceptanceTest        : The following 1 profile is active: "test"
+2022-08-09 16:05:52.509  INFO 72414 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-08-09 16:05:52.511  INFO 72414 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-09 16:05:52.512  INFO 72414 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-08-09 16:05:52.522  INFO 72414 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-09 16:05:52.523  INFO 72414 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 239 ms
+2022-08-09 16:05:52.568  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-19 - Starting...
+2022-08-09 16:05:52.571  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-19 - Start completed.
+2022-08-09 16:05:52.834  INFO 72414 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 60962 (http) with context path ''
+2022-08-09 16:05:52.837  INFO 72414 --- [    Test worker] w.s.acceptance.CartAcceptanceTest        : Started CartAcceptanceTest in 0.614 seconds (JVM running for 33.193)
+Request method:	POST
+Request URI:	http://localhost:60962/api/products
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "치킨",
+    "price": 10000,
+    "imageUrl": "http://example.com/chicken.jpg"
+}
+2022-08-09 16:05:52.862  INFO 72414 --- [-auto-15-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-09 16:05:52.862  INFO 72414 --- [-auto-15-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-09 16:05:52.862  INFO 72414 --- [-auto-15-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: /api/products/6
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:52 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60962/api/products
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "맥주",
+    "price": 20000,
+    "imageUrl": "http://example.com/beer.jpg"
+}
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: /api/products/7
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:52 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60962/api/customer
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "클레이",
+    "email": "djwhy5510@naver.com",
+    "password": "1234567891"
+}
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:52 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60962/api/login
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "email": "djwhy5510@naver.com",
+    "password": "1234567891"
+}
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Tue, 09 Aug 2022 07:05:52 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "accessToken": "eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjI2IiwiaWF0IjoxNjYwMDI4NzUzLCJleHAiOjE2NjAwMzIzNTN9.TlH-N4JZra0vePDtHcUh0VKka9GGxEJNKC1j_PKLeZDT1H2SAgGgH4QTVhRR0Ut2Fc6raVsZwv7zricTSVJxLA"
+}
+Request method:	DELETE
+Request URI:	http://localhost:60962/api/customer/carts
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "cartIds": [
+        1,
+        2
+    ]
+}
+HTTP/1.1 404 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Tue, 09 Aug 2022 07:05:52 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "message": "장바구니 아이템이 없습니다."
+}
+2022-08-09 16:05:53.194  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-19 - Shutdown initiated...
+2022-08-09 16:05:53.194  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-19 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.6)
+
+2022-08-09 16:05:53.251  INFO 72414 --- [    Test worker] w.s.acceptance.CartAcceptanceTest        : Starting CartAcceptanceTest using Java 15.0.7 on bagseeun-ui-MacBookPro.local with PID 72414 (started by parkseeun in /Users/parkseeun/Develop/woowacourse/level-3/sonar-cloud)
+2022-08-09 16:05:53.252  INFO 72414 --- [    Test worker] w.s.acceptance.CartAcceptanceTest        : The following 1 profile is active: "test"
+2022-08-09 16:05:53.462  INFO 72414 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-08-09 16:05:53.466  INFO 72414 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-09 16:05:53.466  INFO 72414 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-08-09 16:05:53.476  INFO 72414 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-09 16:05:53.477  INFO 72414 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 223 ms
+2022-08-09 16:05:53.520  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-20 - Starting...
+2022-08-09 16:05:53.523  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-20 - Start completed.
+2022-08-09 16:05:53.791  INFO 72414 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 60969 (http) with context path ''
+2022-08-09 16:05:53.796  INFO 72414 --- [    Test worker] w.s.acceptance.CartAcceptanceTest        : Started CartAcceptanceTest in 0.6 seconds (JVM running for 34.153)
+Request method:	POST
+Request URI:	http://localhost:60969/api/products
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "치킨",
+    "price": 10000,
+    "imageUrl": "http://example.com/chicken.jpg"
+}
+2022-08-09 16:05:53.819  INFO 72414 --- [-auto-16-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-09 16:05:53.820  INFO 72414 --- [-auto-16-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-09 16:05:53.821  INFO 72414 --- [-auto-16-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: /api/products/6
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:52 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60969/api/products
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "맥주",
+    "price": 20000,
+    "imageUrl": "http://example.com/beer.jpg"
+}
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: /api/products/7
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:52 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60969/api/customer
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "클레이",
+    "email": "djwhy5510@naver.com",
+    "password": "1234567891"
+}
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:53 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60969/api/login
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "email": "djwhy5510@naver.com",
+    "password": "1234567891"
+}
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Tue, 09 Aug 2022 07:05:53 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "accessToken": "eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjI2IiwiaWF0IjoxNjYwMDI4NzU0LCJleHAiOjE2NjAwMzIzNTR9.fSUioUZ6fn1P_ah8RjBkZtP9ZX0bf5J3R2hio_6IVgWfz10Ve5z9tRW-Yt72Pd3CBp9eSREAyiC9LMyHMUNqzw"
+}
+Request method:	POST
+Request URI:	http://localhost:60969/api/customer/carts
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "productId": 6
+}
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: http://localhost:60969/api/customer/carts/1
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:53 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	PUT
+Request URI:	http://localhost:60969/api/customer/carts
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "quantity": 10,
+    "productId": 6
+}
+HTTP/1.1 204 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Date: Tue, 09 Aug 2022 07:05:53 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+2022-08-09 16:05:54.185  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-20 - Shutdown initiated...
+2022-08-09 16:05:54.186  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-20 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.6)
+
+2022-08-09 16:05:54.239  INFO 72414 --- [    Test worker] w.s.acceptance.CartAcceptanceTest        : Starting CartAcceptanceTest using Java 15.0.7 on bagseeun-ui-MacBookPro.local with PID 72414 (started by parkseeun in /Users/parkseeun/Develop/woowacourse/level-3/sonar-cloud)
+2022-08-09 16:05:54.239  INFO 72414 --- [    Test worker] w.s.acceptance.CartAcceptanceTest        : The following 1 profile is active: "test"
+2022-08-09 16:05:54.464  INFO 72414 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-08-09 16:05:54.466  INFO 72414 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-09 16:05:54.466  INFO 72414 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-08-09 16:05:54.475  INFO 72414 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-09 16:05:54.475  INFO 72414 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 235 ms
+2022-08-09 16:05:54.520  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-21 - Starting...
+2022-08-09 16:05:54.523  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-21 - Start completed.
+2022-08-09 16:05:54.792  INFO 72414 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 60977 (http) with context path ''
+2022-08-09 16:05:54.797  INFO 72414 --- [    Test worker] w.s.acceptance.CartAcceptanceTest        : Started CartAcceptanceTest in 0.609 seconds (JVM running for 35.153)
+Request method:	POST
+Request URI:	http://localhost:60977/api/products
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "치킨",
+    "price": 10000,
+    "imageUrl": "http://example.com/chicken.jpg"
+}
+2022-08-09 16:05:54.821  INFO 72414 --- [-auto-17-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-09 16:05:54.821  INFO 72414 --- [-auto-17-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-09 16:05:54.822  INFO 72414 --- [-auto-17-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: /api/products/6
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:53 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60977/api/products
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "맥주",
+    "price": 20000,
+    "imageUrl": "http://example.com/beer.jpg"
+}
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: /api/products/7
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:53 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60977/api/customer
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "클레이",
+    "email": "djwhy5510@naver.com",
+    "password": "1234567891"
+}
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:54 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60977/api/login
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "email": "djwhy5510@naver.com",
+    "password": "1234567891"
+}
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Tue, 09 Aug 2022 07:05:54 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "accessToken": "eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjI2IiwiaWF0IjoxNjYwMDI4NzU1LCJleHAiOjE2NjAwMzIzNTV9.lbBbNMnv2w35OYE0VWIKPdxXvRTiIGC_phbQ0OIYQSIn2rXNOIOp8FtnLftQB-gOTy800c1bLWz7z-C_0QsU5w"
+}
+Request method:	POST
+Request URI:	http://localhost:60977/api/customer/carts
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "productId": 1000
+}
+HTTP/1.1 404 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Tue, 09 Aug 2022 07:05:54 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "message": "올바르지 않은 사용자 이름이거나 상품 아이디 입니다."
+}
+2022-08-09 16:05:55.275  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-21 - Shutdown initiated...
+2022-08-09 16:05:55.276  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-21 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.6)
+
+2022-08-09 16:05:55.307  INFO 72414 --- [    Test worker] w.s.acceptance.CartAcceptanceTest        : Starting CartAcceptanceTest using Java 15.0.7 on bagseeun-ui-MacBookPro.local with PID 72414 (started by parkseeun in /Users/parkseeun/Develop/woowacourse/level-3/sonar-cloud)
+2022-08-09 16:05:55.307  INFO 72414 --- [    Test worker] w.s.acceptance.CartAcceptanceTest        : The following 1 profile is active: "test"
+2022-08-09 16:05:55.559  INFO 72414 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-08-09 16:05:55.560  INFO 72414 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-09 16:05:55.560  INFO 72414 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-08-09 16:05:55.573  INFO 72414 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-09 16:05:55.573  INFO 72414 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 265 ms
+2022-08-09 16:05:55.618  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-22 - Starting...
+2022-08-09 16:05:55.622  INFO 72414 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-22 - Start completed.
+2022-08-09 16:05:55.864  INFO 72414 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 60984 (http) with context path ''
+2022-08-09 16:05:55.868  INFO 72414 --- [    Test worker] w.s.acceptance.CartAcceptanceTest        : Started CartAcceptanceTest in 0.59 seconds (JVM running for 36.224)
+Request method:	POST
+Request URI:	http://localhost:60984/api/products
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "치킨",
+    "price": 10000,
+    "imageUrl": "http://example.com/chicken.jpg"
+}
+2022-08-09 16:05:55.887  INFO 72414 --- [-auto-18-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-09 16:05:55.888  INFO 72414 --- [-auto-18-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-09 16:05:55.888  INFO 72414 --- [-auto-18-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: /api/products/6
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:54 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60984/api/products
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "맥주",
+    "price": 20000,
+    "imageUrl": "http://example.com/beer.jpg"
+}
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: /api/products/7
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:54 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60984/api/customer
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "클레이",
+    "email": "djwhy5510@naver.com",
+    "password": "1234567891"
+}
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:56 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60984/api/login
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "email": "djwhy5510@naver.com",
+    "password": "1234567891"
+}
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Tue, 09 Aug 2022 07:05:56 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "accessToken": "eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjI2IiwiaWF0IjoxNjYwMDI4NzU2LCJleHAiOjE2NjAwMzIzNTZ9.0TSmK-nBxXU5_kkkkz7mkdrnNW_RAw3Q888_xLtHeJHH6beXv4G5X4MCGmEESJQ6Ys782eb8GJpJ1lcqYpzGaA"
+}
+Request method:	POST
+Request URI:	http://localhost:60984/api/customer/carts
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "productId": 6
+}
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: http://localhost:60984/api/customer/carts/1
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:56 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	POST
+Request URI:	http://localhost:60984/api/customer/carts
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "productId": 7
+}
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: http://localhost:60984/api/customer/carts/2
+Content-Length: 0
+Date: Tue, 09 Aug 2022 07:05:56 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	GET
+Request URI:	http://localhost:60984/api/customer/carts
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Tue, 09 Aug 2022 07:05:56 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+[
+    {
+        "id": 1,
+        "productId": 6,
+        "name": "치킨",
+        "price": 10000,
+        "quantity": 1,
+        "imageUrl": "http://example.com/chicken.jpg"
+    },
+    {
+        "id": 2,
+        "productId": 7,
+        "name": "맥주",
+        "price": 20000,
+        "quantity": 1,
+        "imageUrl": "http://example.com/beer.jpg"
+    }
+]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

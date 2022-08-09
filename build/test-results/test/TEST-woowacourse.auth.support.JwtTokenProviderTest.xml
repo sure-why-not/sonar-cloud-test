@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="woowacourse.auth.support.JwtTokenProviderTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-08-09T07:05:38" hostname="bagseeun-ui-MacBookPro.local" time="0.012">
+  <properties/>
+  <testcase name="토큰 유효성을 검사한다." classname="woowacourse.auth.support.JwtTokenProviderTest" time="0.004"/>
+  <testcase name="문자열을 토큰으로 만든다." classname="woowacourse.auth.support.JwtTokenProviderTest" time="0.004"/>
+  <testcase name="토큰 유효성을 검사한다." classname="woowacourse.auth.support.JwtTokenProviderTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
