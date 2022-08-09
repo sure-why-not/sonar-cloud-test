@@ -72,7 +72,7 @@ sonarqube {
         property "sonar.projectKey", "sure-why-not_sonar-cloud-test"
         property "sonar.organization", "sure-why-not"
         property "sonar.host.url", "https://sonarcloud.io"
-        property 'sonar.coverage.jacoco.xmlReportPaths', 'build/reports/jacoco/result.xml'
+        property 'sonar.coverage.jacoco.xmlReportPaths', 'src/jacoco/jacoco.xml'
         property 'sonar.language', 'java'
     }
 }
@@ -82,13 +82,21 @@ jacoco {
     // JaCoCo 버전
     toolVersion = "0.8.8"
 }
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
 
 jacocoTestReport {
-    dependsOn test // 리포트 생성 전에 test를 반드시 수행해야 한다!
-    reports { // 어떤 파일들을 생성할지, 어디에 생성할지 설정
-        xml.enabled true // xml과 html형식으로 결과물을 만들어내라!
+    dependsOn test
+    reports {
         html.enabled true
-        xml.destination file("${buildDir}/jacoco/result.xml")
-        // 경로 명시 안 할 경우 기본 경로는 build/reports/jacoco 이하 경로
+        xml.enabled true
+        csv.enabled true
+
+        html.destination file("src/jacoco/jacoco.html")
+        xml.destination file("src/jacoco/jacoco.xml")
     }
+    //finalizedBy 'jacocoTestCoverageVerification'
 }
